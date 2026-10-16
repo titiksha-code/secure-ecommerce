@@ -70,7 +70,7 @@ public class SecurityConfig {
                 .filter(s -> !s.isEmpty())
                 .toList();
 
-        configuration.setAllowedOrigins(origins);
+        configuration.setAllowedOriginPatterns(List.of("*"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of(
                 "Authorization", "Content-Type", "Accept", "X-Requested-With",
@@ -112,11 +112,12 @@ public class SecurityConfig {
                     ).permitAll()
 
                     // Public Product Browsing
-                    .requestMatchers(HttpMethod.GET, "/api/v1/products/**").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/api/v1/categories/**").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/v1/products", "/api/v1/products/**").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/v1/categories", "/api/v1/categories/**").permitAll()
 
-                    // Documentation & Tools
+                    // Documentation, Health & Tools
                     .requestMatchers(
+                            "/actuator/**",
                             "/v3/api-docs/**",
                             "/swagger-ui/**",
                             "/swagger-ui.html",
