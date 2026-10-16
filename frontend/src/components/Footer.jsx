@@ -1,136 +1,81 @@
 import React from 'react';
-import { ShieldCheck, Lock, RefreshCw, Cpu } from 'lucide-react';
 
 export const Footer = () => {
   return (
-    <footer style={{
-      background: 'rgba(11, 15, 25, 0.95)',
-      borderTop: '1px solid var(--border-subtle)',
-      padding: '3rem 1.5rem 2rem',
-      marginTop: 'auto',
-    }}>
-      <div style={{
-        maxWidth: '1280px',
-        margin: '0 auto',
-      }}>
-        {/* Security Trust Badges Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-          gap: '1.5rem',
-          paddingBottom: '2.5rem',
-          borderBottom: '1px solid var(--border-subtle)',
-          marginBottom: '2rem',
-        }}>
-          <div style={{ display: 'flex', gap: '0.85rem', alignItems: 'flex-start' }}>
+    <footer className="compliance-footer">
+      <div className="compliance-inner">
+        {/* Top Header Line */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <div style={{
-              width: '38px',
-              height: '38px',
-              borderRadius: '8px',
-              background: 'rgba(99, 102, 241, 0.15)',
+              width: '28px',
+              height: '28px',
+              borderRadius: 'var(--radius-sm)',
+              background: 'var(--color-primary)',
+              color: 'var(--color-on-primary)',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              color: '#818cf8',
-              flexShrink: 0,
+              justifyContent: 'center'
             }}>
-              <ShieldCheck size={20} />
+              <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>shield</span>
             </div>
-            <div>
-              <div style={{ fontWeight: 600, fontSize: '0.9rem', marginBottom: '2px' }}>Pessimistic Stock Lock</div>
-              <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                Database row locks prevent overselling during flash-sales and high concurrency.
-              </div>
-            </div>
+            <span style={{ fontSize: '14px', fontWeight: 700, color: 'var(--color-on-surface)' }}>
+              SecureCart
+            </span>
           </div>
 
-          <div style={{ display: 'flex', gap: '0.85rem', alignItems: 'flex-start' }}>
-            <div style={{
-              width: '38px',
-              height: '38px',
-              borderRadius: '8px',
-              background: 'rgba(6, 182, 212, 0.15)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#22d3ee',
-              flexShrink: 0,
-            }}>
-              <RefreshCw size={20} />
-            </div>
-            <div>
-              <div style={{ fontWeight: 600, fontSize: '0.9rem', marginBottom: '2px' }}>Idempotent Checkout</div>
-              <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                UUID deduplication headers protect against double charges upon network retries.
-              </div>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', gap: '0.85rem', alignItems: 'flex-start' }}>
-            <div style={{
-              width: '38px',
-              height: '38px',
-              borderRadius: '8px',
-              background: 'rgba(16, 185, 129, 0.15)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#34d399',
-              flexShrink: 0,
-            }}>
-              <Lock size={20} />
-            </div>
-            <div>
-              <div style={{ fontWeight: 600, fontSize: '0.9rem', marginBottom: '2px' }}>Hardened JWT & Cookies</div>
-              <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                15-minute access tokens with HttpOnly rotated refresh cookies and login throttling.
-              </div>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', gap: '0.85rem', alignItems: 'flex-start' }}>
-            <div style={{
-              width: '38px',
-              height: '38px',
-              borderRadius: '8px',
-              background: 'rgba(245, 158, 11, 0.15)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#fbbf24',
-              flexShrink: 0,
-            }}>
-              <Cpu size={20} />
-            </div>
-            <div>
-              <div style={{ fontWeight: 600, fontSize: '0.9rem', marginBottom: '2px' }}>Spring Security 6</div>
-              <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                Zero-trust RBAC architecture, SQL injection prevention, and CORS policies.
-              </div>
-            </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: 'var(--color-secondary)', fontSize: '12px', fontWeight: 600 }}>
+            <span className="material-symbols-outlined" style={{ fontSize: '16px' }}>task_alt</span>
+            <span>PCI-DSS Level 1 Ready</span>
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Technical Badges Grid */}
+        <div className="tech-badges-grid">
+          <div className="tech-badge-card">
+            <span style={{ fontSize: '10px', color: 'var(--color-on-surface-variant)', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>
+              OpenAPI
+            </span>
+            <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--color-on-surface)', fontFamily: 'var(--font-mono)' }}>
+              v3.0.3 Spec
+            </span>
+          </div>
+
+          <div className="tech-badge-card">
+            <span style={{ fontSize: '10px', color: 'var(--color-on-surface-variant)', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>
+              Flyway DB
+            </span>
+            <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--color-on-surface)', fontFamily: 'var(--font-mono)' }}>
+              Schema V14
+            </span>
+          </div>
+
+          <div className="tech-badge-card">
+            <span style={{ fontSize: '10px', color: 'var(--color-on-surface-variant)', display: 'block', textTransform: 'uppercase', fontFamily: 'var(--font-mono)' }}>
+              Status
+            </span>
+            <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--color-secondary)', fontFamily: 'var(--font-mono)' }}>
+              Production
+            </span>
+          </div>
+        </div>
+
+        {/* Bottom Technical Session Tracker */}
         <div style={{
+          paddingTop: '0.75rem',
+          borderTop: '1px solid var(--color-surface-container)',
           display: 'flex',
-          flexWrap: 'wrap',
+          flexDirection: 'column',
           alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '1rem',
-          fontSize: '0.8rem',
-          color: 'var(--text-faint)',
+          gap: '0.25rem',
+          textAlign: 'center',
+          fontSize: '11px',
+          color: 'var(--color-on-surface-variant)'
         }}>
-          <div>
-            © {new Date().getFullYear()} <strong style={{ color: 'var(--text-muted)' }}>SecureCart Inc.</strong> All rights reserved.
-          </div>
-          <div style={{ display: 'flex', gap: '1.25rem' }}>
-            <span style={{ color: 'var(--text-faint)' }}>OpenAPI Specification 3.0</span>
-            <span>•</span>
-            <span style={{ color: 'var(--text-faint)' }}>Flyway Versioned Schema</span>
-            <span>•</span>
-            <span style={{ color: 'var(--accent-emerald)' }}>Production Grade</span>
-          </div>
+          <span>© 2026 SecureCart Inc. Cryptographic store architecture.</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--color-outline)' }}>
+            Deterministic UUID session: d94f-281b-cc02
+          </span>
         </div>
       </div>
     </footer>

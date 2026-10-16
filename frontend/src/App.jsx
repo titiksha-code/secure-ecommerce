@@ -12,16 +12,16 @@ import { CheckoutModal } from './pages/CheckoutModal';
 import { AuthModal } from './pages/AuthModal';
 
 function MainAppContent() {
-  const [currentTab, setCurrentTab] = useState('storefront'); // 'storefront' | 'profile' | 'admin'
+  const [currentTab, setCurrentTab] = useState('storefront'); // 'storefront' | 'profile' | 'admin' | 'security'
   const [searchQuery, setSearchQuery] = useState('');
-  const { isAuthenticated, isAdmin } = useAuth();
+  const { isAuthenticated, isAdmin, openAuthModal } = useAuth();
 
   const handleOrderPlaced = () => {
-    // Optional navigation to profile upon order placement
+    setCurrentTab('profile');
   };
 
   return (
-    <div className="app-container">
+    <div className="app-shell">
       <Navbar
         currentTab={currentTab}
         setCurrentTab={setCurrentTab}
@@ -57,6 +57,58 @@ function MainAppContent() {
       <CheckoutModal onOrderPlaced={handleOrderPlaced} />
       <AuthModal />
       <Footer />
+
+      {/* Stitch Mobile & Desktop Bottom Navigation Bar */}
+      <nav className="stitch-bottom-nav">
+        <div className="stitch-bottom-nav-inner">
+          <div 
+            className={`bottom-nav-item ${currentTab === 'storefront' ? 'active' : ''}`}
+            onClick={() => {
+              setCurrentTab('storefront');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+          >
+            <span className="material-symbols-outlined">home</span>
+            <span>Home</span>
+          </div>
+
+          <div 
+            className="bottom-nav-item"
+            onClick={() => {
+              setCurrentTab('storefront');
+              const el = document.getElementById('stitch-catalog-section');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            <span className="material-symbols-outlined">grid_view</span>
+            <span>Catalog</span>
+          </div>
+
+          <div 
+            className="bottom-nav-item"
+            onClick={() => {
+              window.open('https://pleasant-learning-production-a5fd.up.railway.app/swagger-ui.html', '_blank');
+            }}
+          >
+            <span className="material-symbols-outlined">shield_lock</span>
+            <span>Security</span>
+          </div>
+
+          <div 
+            className={`bottom-nav-item ${currentTab === 'profile' ? 'active' : ''}`}
+            onClick={() => {
+              if (isAuthenticated) {
+                setCurrentTab('profile');
+              } else {
+                openAuthModal();
+              }
+            }}
+          >
+            <span className="material-symbols-outlined">receipt_long</span>
+            <span>Orders</span>
+          </div>
+        </div>
+      </nav>
     </div>
   );
 }
