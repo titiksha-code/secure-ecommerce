@@ -1,6 +1,6 @@
 // API Client with automatic JWT handling, token refresh, and Idempotency keys
 
-const API_BASE = (import.meta.env.VITE_API_BASE_URL || '') + '/api/v1';
+const API_BASE = (import.meta.env.VITE_API_BASE_URL || 'https://pleasant-learning-production-a5fd.up.railway.app') + '/api/v1';
 
 let accessToken = localStorage.getItem('securecart_access_token') || null;
 

@@ -12,7 +12,7 @@
 ![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?logo=docker&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
-**[🌐 Live Demo](https://securecart.up.railway.app)** • **[📖 Swagger UI](https://securecart-backend.up.railway.app/swagger-ui.html)** • **[🚀 Quick Start](#-quick-start)**
+**[🌐 Live Demo](https://exciting-vision-production-5848.up.railway.app)** • **[📖 Swagger UI](https://pleasant-learning-production-a5fd.up.railway.app/swagger-ui.html)** • **[🚀 Quick Start](#-quick-start)**
 
 </div>
 
@@ -22,8 +22,9 @@
 
 | Service | URL |
 |---------|-----|
-| 🛒 **Frontend App** | https://securecart.up.railway.app |
-| 📖 **Swagger / OpenAPI** | https://securecart-backend.up.railway.app/swagger-ui.html |
+| 🛒 **Frontend App** | [https://exciting-vision-production-5848.up.railway.app](https://exciting-vision-production-5848.up.railway.app) |
+| 📖 **Swagger / OpenAPI** | [https://pleasant-learning-production-a5fd.up.railway.app/swagger-ui.html](https://pleasant-learning-production-a5fd.up.railway.app/swagger-ui.html) |
+| ⚙️ **Backend Health Probe** | [https://pleasant-learning-production-a5fd.up.railway.app/actuator/health](https://pleasant-learning-production-a5fd.up.railway.app/actuator/health) |
 
 ### Demo Accounts (pre-seeded)
 
