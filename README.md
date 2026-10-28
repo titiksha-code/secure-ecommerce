@@ -230,6 +230,16 @@ cd backend
 
 ---
 
+## 🩺 Health Checks & Production Monitoring
+
+| Endpoint | Purpose | Access |
+|---|---|---|
+| `/actuator/health` | Service liveness and database ping probe | Public |
+| `/actuator/info` | Application metadata and build version | Public |
+| `/swagger-ui.html` | Interactive OpenAPI documentation & test console | Public |
+
+---
+
 ## 📄 License
 
 MIT © [titiksha-code](https://github.com/titiksha-code)
