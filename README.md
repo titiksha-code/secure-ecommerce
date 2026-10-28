@@ -111,6 +111,7 @@ docker run -d -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=securecart_d
 
 # Terminal 2: Frontend
 cd frontend
+cp .env.example .env          # Set VITE_API_BASE_URL (defaults to http://localhost:8080/api/v1)
 npm install && npm run dev
 # → http://localhost:5173
 ```
